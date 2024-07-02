@@ -1,0 +1,7 @@
+model:
+  backend: ipex
+  domain: nlp
+  inputs: []
+  outputs: []
+  quant_format: default
+device: cpu

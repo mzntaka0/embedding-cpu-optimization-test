@@ -1,0 +1,62 @@
+[tool.poetry]
+name = "embedding-cpu-optimization"
+version = "0.1.0"
+description = ""
+authors = ["Takao Mizuno <takao.mizuno110@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+intel-extension-for-pytorch = "^2.3.100"
+torch = { url = "https://download.pytorch.org/whl/cpu/torch-2.3.0%2Bcpu-cp39-cp39-linux_x86_64.whl#sha256=1e86e225e472392440ace378ba3165b5e87648e8b5fbf16adc41c0df881c38b8" }
+torchaudio = { url = "https://download.pytorch.org/whl/cpu/torchaudio-2.3.0%2Bcpu-cp39-cp39-linux_x86_64.whl#sha256=19e21c8eac310df3eeb55a930f726270cd71b8dd5ab9ae1f5a5915f5791fc9d3" }
+torchvision = { url = "https://download.pytorch.org/whl/cpu/torchvision-0.18.0%2Bcpu-cp39-cp39-linux_x86_64.whl#sha256=0e764a15c69f51742b09ec17cc2dcd1eee445e87cfd93a9b13b1caa2037f154d" }
+oneccl_bind_pt = { url = "https://intel-extension-for-pytorch.s3.amazonaws.com/ipex_stable/cpu/oneccl_bind_pt-2.3.0%2Bcpu-cp39-cp39-linux_x86_64.whl" }
+optimum = { extras = ["neural-compressor"], version = "^1.21.0" }
+intel-extension-for-transformers = "^1.4.2"
+sentence-transformers = "^3.0.1"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.0"
+mypy = "^1.10.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.mypy]
+python_version = "3.11"
+show_error_context = true
+show_column_numbers = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+
+[tool.ruff]
+target-version = "py311"
+select = ["ALL"]
+ignore = ["D", "ANN101", "ANN102", "ANN401", "ERA001", "PGH003"]
+
+fixable = ["ALL"]
+unfixable = ["F401"]
+
+line-length = 79
+
+[tool.ruff.lint]
+task-tags = ["TODO", "NOTE", "FIXME", "XXX"]
+
+[tool.ruff.format]
+skip-magic-trailing-comma = false
+quote-style = "double"
+
+[tool.ruff.isort]
+combine-as-imports = true
+section-order = [
+  "future",
+  "standard-library",
+  "third-party",
+  "first-party",
+  "local-folder",
+]
+split-on-trailing-comma = true
