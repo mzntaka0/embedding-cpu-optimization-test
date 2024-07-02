@@ -1,0 +1,131 @@
+python quantize.py --model_name intfloat/multilingual-e5-base --output_path e5-base-optimized --quantize --sample_size 100
+WARNING:root:`transformers` version >= 4.31 is requirements by intel-extension-for-transformers.
+Map (num_proc=10): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:02<00:00, 46.07 examples/s]
+ONNX export is no supported for model with quantized embeddings
+2024-07-02 18:17:51 [INFO] Start auto tuning.
+2024-07-02 18:17:51 [INFO] Execute the tuning process due to detect the evaluation function.
+2024-07-02 18:17:51 [INFO] Adaptor has 5 recipes.
+2024-07-02 18:17:51 [INFO] 0 recipes specified by user.
+2024-07-02 18:17:52 [INFO] 3 recipes require future tuning.
+2024-07-02 18:17:52 [WARNING] Fail to remove /home/mzntaka0/work/projects/indie/embedding-cpu-optimization/src/embedding_cpu_optimization/nc_workspace/2024-07-02_18-17-35/ipex_config_tmp.json.
+2024-07-02 18:17:52 [INFO] *** Initialize auto tuning
+2024-07-02 18:17:52 [INFO] {
+2024-07-02 18:17:52 [INFO]     'PostTrainingQuantConfig': {
+2024-07-02 18:17:52 [INFO]         'AccuracyCriterion': {
+2024-07-02 18:17:52 [INFO]             'criterion': 'relative',
+2024-07-02 18:17:52 [INFO]             'higher_is_better': True,
+2024-07-02 18:17:52 [INFO]             'tolerable_loss': 0.01,
+2024-07-02 18:17:52 [INFO]             'absolute': None,
+2024-07-02 18:17:52 [INFO]             'keys': <bound method AccuracyCriterion.keys of <neural_compressor.config.AccuracyCriterion object at 0x727361eba280>>,
+2024-07-02 18:17:52 [INFO]             'relative': 0.01
+2024-07-02 18:17:52 [INFO]         },
+2024-07-02 18:17:52 [INFO]         'approach': 'post_training_static_quant',
+2024-07-02 18:17:52 [INFO]         'backend': 'ipex',
+2024-07-02 18:17:52 [INFO]         'calibration_sampling_size': [
+2024-07-02 18:17:52 [INFO]             100
+2024-07-02 18:17:52 [INFO]         ],
+2024-07-02 18:17:52 [INFO]         'device': 'cpu',
+2024-07-02 18:17:52 [INFO]         'diagnosis': False,
+2024-07-02 18:17:52 [INFO]         'domain': 'nlp',
+2024-07-02 18:17:52 [INFO]         'example_inputs': 'Not printed here due to large size tensors...',
+2024-07-02 18:17:52 [INFO]         'excluded_precisions': [
+2024-07-02 18:17:52 [INFO]         ],
+2024-07-02 18:17:52 [INFO]         'framework': 'pytorch_ipex',
+2024-07-02 18:17:52 [INFO]         'inputs': [
+2024-07-02 18:17:52 [INFO]         ],
+2024-07-02 18:17:52 [INFO]         'model_name': '',
+2024-07-02 18:17:52 [INFO]         'ni_workload_name': 'quantization',
+2024-07-02 18:17:52 [INFO]         'op_name_dict': None,
+2024-07-02 18:17:52 [INFO]         'op_type_dict': None,
+2024-07-02 18:17:52 [INFO]         'outputs': [
+2024-07-02 18:17:52 [INFO]         ],
+2024-07-02 18:17:52 [INFO]         'quant_format': 'default',
+2024-07-02 18:17:52 [INFO]         'quant_level': 'auto',
+2024-07-02 18:17:52 [INFO]         'recipes': {
+2024-07-02 18:17:52 [INFO]             'smooth_quant': False,
+2024-07-02 18:17:52 [INFO]             'smooth_quant_args': {
+2024-07-02 18:17:52 [INFO]             },
+2024-07-02 18:17:52 [INFO]             'layer_wise_quant': False,
+2024-07-02 18:17:52 [INFO]             'layer_wise_quant_args': {
+2024-07-02 18:17:52 [INFO]             },
+2024-07-02 18:17:52 [INFO]             'fast_bias_correction': False,
+2024-07-02 18:17:52 [INFO]             'weight_correction': False,
+2024-07-02 18:17:52 [INFO]             'gemm_to_matmul': True,
+2024-07-02 18:17:52 [INFO]             'graph_optimization_level': None,
+2024-07-02 18:17:52 [INFO]             'first_conv_or_matmul_quantization': True,
+2024-07-02 18:17:52 [INFO]             'last_conv_or_matmul_quantization': True,
+2024-07-02 18:17:52 [INFO]             'pre_post_process_quantization': True,
+2024-07-02 18:17:52 [INFO]             'add_qdq_pair_to_weight': False,
+2024-07-02 18:17:52 [INFO]             'optypes_to_exclude_output_quant': [
+2024-07-02 18:17:52 [INFO]             ],
+2024-07-02 18:17:52 [INFO]             'dedicated_qdq_pair': False,
+2024-07-02 18:17:52 [INFO]             'rtn_args': {
+2024-07-02 18:17:52 [INFO]             },
+2024-07-02 18:17:52 [INFO]             'awq_args': {
+2024-07-02 18:17:52 [INFO]             },
+2024-07-02 18:17:52 [INFO]             'gptq_args': {
+2024-07-02 18:17:52 [INFO]             },
+2024-07-02 18:17:52 [INFO]             'teq_args': {
+2024-07-02 18:17:52 [INFO]             },
+2024-07-02 18:17:52 [INFO]             'autoround_args': {
+2024-07-02 18:17:52 [INFO]             }
+2024-07-02 18:17:52 [INFO]         },
+2024-07-02 18:17:52 [INFO]         'reduce_range': None,
+2024-07-02 18:17:52 [INFO]         'TuningCriterion': {
+2024-07-02 18:17:52 [INFO]             'max_trials': 100,
+2024-07-02 18:17:52 [INFO]             'objective': [
+2024-07-02 18:17:52 [INFO]                 'performance'
+2024-07-02 18:17:52 [INFO]             ],
+2024-07-02 18:17:52 [INFO]             'strategy': 'basic',
+2024-07-02 18:17:52 [INFO]             'strategy_kwargs': None,
+2024-07-02 18:17:52 [INFO]             'timeout': 0
+2024-07-02 18:17:52 [INFO]         },
+2024-07-02 18:17:52 [INFO]         'use_bf16': True
+2024-07-02 18:17:52 [INFO]     }
+2024-07-02 18:17:52 [INFO] }
+2024-07-02 18:17:52 [WARNING] [Strategy] Please install `mpi4py` correctly if using distributed tuning; otherwise, ignore this warning.
+2024-07-02 18:17:52 [INFO]  Found 12 blocks
+2024-07-02 18:17:52 [INFO] Attention Blocks: 12
+2024-07-02 18:17:52 [INFO] FFN Blocks: 12
+WARNING:IPEX:[NotSupported]BatchNorm folding failed during the prepare process.
+2024-07-02 18:17:55 [INFO] Attention Blocks :
+2024-07-02 18:17:55 [INFO] [['encoder.layer.0.attention.self.query', 'encoder.layer.0.attention.self.key', 'encoder.layer.0.attention.self.value', 'encoder.layer.0.attention.output.dense'], ['encoder.layer.1.attention.self.query', 'encoder.layer.1.attention.self.key', 'encoder.layer.1.attention.self.value', 'encoder.layer.1.attention.output.dense'], ['encoder.layer.2.attention.self.query', 'encoder.layer.2.attention.self.key', 'encoder.layer.2.attention.self.value', 'encoder.layer.2.attention.output.dense'], ['encoder.layer.3.attention.self.query', 'encoder.layer.3.attention.self.key', 'encoder.layer.3.attention.self.value', 'encoder.layer.3.attention.output.dense'], ['encoder.layer.4.attention.self.query', 'encoder.layer.4.attention.self.key', 'encoder.layer.4.attention.self.value', 'encoder.layer.4.attention.output.dense'], ['encoder.layer.5.attention.self.query', 'encoder.layer.5.attention.self.key', 'encoder.layer.5.attention.self.value', 'encoder.layer.5.attention.output.dense'], ['encoder.layer.6.attention.self.query', 'encoder.layer.6.attention.self.key', 'encoder.layer.6.attention.self.value', 'encoder.layer.6.attention.output.dense'], ['encoder.layer.7.attention.self.query', 'encoder.layer.7.attention.self.key', 'encoder.layer.7.attention.self.value', 'encoder.layer.7.attention.output.dense'], ['encoder.layer.8.attention.self.query', 'encoder.layer.8.attention.self.key', 'encoder.layer.8.attention.self.value', 'encoder.layer.8.attention.output.dense'], ['encoder.layer.9.attention.self.query', 'encoder.layer.9.attention.self.key', 'encoder.layer.9.attention.self.value', 'encoder.layer.9.attention.output.dense'], ['encoder.layer.10.attention.self.query', 'encoder.layer.10.attention.self.key', 'encoder.layer.10.attention.self.value', 'encoder.layer.10.attention.output.dense'], ['encoder.layer.11.attention.self.query', 'encoder.layer.11.attention.self.key', 'encoder.layer.11.attention.self.value', 'encoder.layer.11.attention.output.dense']]
+2024-07-02 18:17:55 [INFO] FFN Blocks :
+2024-07-02 18:17:55 [INFO] [['encoder.layer.0.intermediate.dense', 'encoder.layer.0.output.dense'], ['encoder.layer.1.intermediate.dense', 'encoder.layer.1.output.dense'], ['encoder.layer.2.intermediate.dense', 'encoder.layer.2.output.dense'], ['encoder.layer.3.intermediate.dense', 'encoder.layer.3.output.dense'], ['encoder.layer.4.intermediate.dense', 'encoder.layer.4.output.dense'], ['encoder.layer.5.intermediate.dense', 'encoder.layer.5.output.dense'], ['encoder.layer.6.intermediate.dense', 'encoder.layer.6.output.dense'], ['encoder.layer.7.intermediate.dense', 'encoder.layer.7.output.dense'], ['encoder.layer.8.intermediate.dense', 'encoder.layer.8.output.dense'], ['encoder.layer.9.intermediate.dense', 'encoder.layer.9.output.dense'], ['encoder.layer.10.intermediate.dense', 'encoder.layer.10.output.dense'], ['encoder.layer.11.intermediate.dense', 'encoder.layer.11.output.dense']]
+2024-07-02 18:17:55 [INFO] Pass query framework capability elapsed time: 3164.85 ms
+2024-07-02 18:17:55 [INFO] Get FP32 model baseline.
+2024-07-02 18:17:55 [INFO] Save tuning history to /home/mzntaka0/work/projects/indie/embedding-cpu-optimization/src/embedding_cpu_optimization/nc_workspace/2024-07-02_18-17-35/./history.snapshot.
+2024-07-02 18:17:55 [INFO] FP32 baseline is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+2024-07-02 18:17:55 [INFO] Quantize the model with default config.
+/root/.cache/pypoetry/virtualenvs/embedding-cpu-optimization-_fJAzoam-py3.9/lib/python3.9/site-packages/torch/ao/quantization/observer.py:220: UserWarning: Please use quant_min and quant_max to specify the range for observers.                     reduce_range will be deprecated in a future release of PyTorch.
+  warnings.warn(
+/root/.cache/pypoetry/virtualenvs/embedding-cpu-optimization-_fJAzoam-py3.9/lib/python3.9/site-packages/transformers/modeling_utils.py:4481: FutureWarning: `_is_quantized_training_enabled` is going to be deprecated in transformers 4.39.0. Please use `model.hf_quantizer.is_trainable` instead
+  warnings.warn(
+/root/.cache/pypoetry/virtualenvs/embedding-cpu-optimization-_fJAzoam-py3.9/lib/python3.9/site-packages/intel_extension_for_pytorch/quantization/_quantization_state_utils.py:452: TracerWarning: Converting a tensor to a Python number might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  args, scale.item(), zp.item(), dtype
+/root/.cache/pypoetry/virtualenvs/embedding-cpu-optimization-_fJAzoam-py3.9/lib/python3.9/site-packages/intel_extension_for_pytorch/quantization/_quantization_state.py:491: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  if scale.numel() > 1:
+2024-07-02 18:19:31 [INFO] |******Mixed Precision Statistics******|
+2024-07-02 18:19:31 [INFO] +---------------+-----------+----------+
+2024-07-02 18:19:31 [INFO] |    Op Type    |   Total   |   INT8   |
+2024-07-02 18:19:31 [INFO] +---------------+-----------+----------+
+2024-07-02 18:19:31 [INFO] |     matmul    |     24    |    24    |
+2024-07-02 18:19:31 [INFO] |     Linear    |     25    |    25    |
+2024-07-02 18:19:31 [INFO] +---------------+-----------+----------+
+2024-07-02 18:19:31 [INFO] Pass quantize model elapsed time: 96061.57 ms
+2024-07-02 18:19:31 [INFO] Tune 1 result is: [Accuracy (int8|fp32): 1.0000|1.0000, Duration (seconds) (int8|fp32): 0.0000|0.0000], Best tune result is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+2024-07-02 18:19:31 [INFO] |**********************Tune Result Statistics**********************|
+2024-07-02 18:19:31 [INFO] +--------------------+----------+---------------+------------------+
+2024-07-02 18:19:31 [INFO] |     Info Type      | Baseline | Tune 1 result | Best tune result |
+2024-07-02 18:19:31 [INFO] +--------------------+----------+---------------+------------------+
+2024-07-02 18:19:31 [INFO] |      Accuracy      | 1.0000   |    1.0000     |     1.0000       |
+2024-07-02 18:19:31 [INFO] | Duration (seconds) | 0.0000   |    0.0000     |     0.0000       |
+2024-07-02 18:19:31 [INFO] +--------------------+----------+---------------+------------------+
+2024-07-02 18:19:31 [INFO] [Strategy] Found a model that meets the accuracy requirements.
+2024-07-02 18:19:31 [INFO] Save tuning history to /home/mzntaka0/work/projects/indie/embedding-cpu-optimization/src/embedding_cpu_optimization/nc_workspace/2024-07-02_18-17-35/./history.snapshot.
+2024-07-02 18:19:31 [INFO] [Strategy] Found the model meets accuracy requirements, ending the tuning process.
+2024-07-02 18:19:31 [INFO] Specified timeout or max trials is reached! Found a quantized model which meet accuracy goal. Exit.
+2024-07-02 18:19:31 [INFO] Save deploy yaml to /home/mzntaka0/work/projects/indie/embedding-cpu-optimization/src/embedding_cpu_optimization/nc_workspace/2024-07-02_18-17-35/deploy.yaml
+Model weights saved to e5-base-optimized/pytorch_model.bin
+Configuration saved in e5-base-optimized/inc_config.json
+
